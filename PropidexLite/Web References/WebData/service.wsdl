@@ -1,0 +1,722 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://planimetron.com/webservices/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://planimetron.com/webservices/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://planimetron.com/webservices/">
+      <s:element name="GetValue">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="source" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetValueResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetValueResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetValueEx">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="source" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Param" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetValueExResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetValueExResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBytes">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="source" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBytesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetBytesResult" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTables">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Query" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Err" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTablesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTablesResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="Err" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTablesEx">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Query" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Param" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTablesExResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTablesExResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateDXF">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="XNo" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="byteMe" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateDXFResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateDXFResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdatePDF">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="PID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="byteMe" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdatePDFResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdatePDFResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateMap">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="MNo" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="byteMe" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateMapResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateMapResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateLayer">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="XXX" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="byteMe" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateLayerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateLayerResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateJPG">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="byteMe" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateJPGResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateJPGResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateLogo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LogoName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="byteMe" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateLogoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateLogoResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateICO">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="iName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="byteMe" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateICOResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateICOResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Identity">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="source" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IdentityResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IdentityResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IdentityEx">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Source" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Param" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IdentityExResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IdentityExResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DoWork">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Query" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DoWorkResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DoWorkResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DoWorkEx">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Query" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Param" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DoWorkExResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DoWorkExResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetValueSoapIn">
+    <wsdl:part name="parameters" element="tns:GetValue" />
+  </wsdl:message>
+  <wsdl:message name="GetValueSoapOut">
+    <wsdl:part name="parameters" element="tns:GetValueResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetValueExSoapIn">
+    <wsdl:part name="parameters" element="tns:GetValueEx" />
+  </wsdl:message>
+  <wsdl:message name="GetValueExSoapOut">
+    <wsdl:part name="parameters" element="tns:GetValueExResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetBytesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetBytes" />
+  </wsdl:message>
+  <wsdl:message name="GetBytesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetBytesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTablesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTables" />
+  </wsdl:message>
+  <wsdl:message name="GetTablesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTablesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTablesExSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTablesEx" />
+  </wsdl:message>
+  <wsdl:message name="GetTablesExSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTablesExResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateDXFSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateDXF" />
+  </wsdl:message>
+  <wsdl:message name="UpdateDXFSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateDXFResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdatePDFSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdatePDF" />
+  </wsdl:message>
+  <wsdl:message name="UpdatePDFSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdatePDFResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateMapSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateMap" />
+  </wsdl:message>
+  <wsdl:message name="UpdateMapSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateMapResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateLayerSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateLayer" />
+  </wsdl:message>
+  <wsdl:message name="UpdateLayerSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateLayerResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateJPGSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateJPG" />
+  </wsdl:message>
+  <wsdl:message name="UpdateJPGSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateJPGResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateLogoSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateLogo" />
+  </wsdl:message>
+  <wsdl:message name="UpdateLogoSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateLogoResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateICOSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateICO" />
+  </wsdl:message>
+  <wsdl:message name="UpdateICOSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateICOResponse" />
+  </wsdl:message>
+  <wsdl:message name="IdentitySoapIn">
+    <wsdl:part name="parameters" element="tns:Identity" />
+  </wsdl:message>
+  <wsdl:message name="IdentitySoapOut">
+    <wsdl:part name="parameters" element="tns:IdentityResponse" />
+  </wsdl:message>
+  <wsdl:message name="IdentityExSoapIn">
+    <wsdl:part name="parameters" element="tns:IdentityEx" />
+  </wsdl:message>
+  <wsdl:message name="IdentityExSoapOut">
+    <wsdl:part name="parameters" element="tns:IdentityExResponse" />
+  </wsdl:message>
+  <wsdl:message name="DoWorkSoapIn">
+    <wsdl:part name="parameters" element="tns:DoWork" />
+  </wsdl:message>
+  <wsdl:message name="DoWorkSoapOut">
+    <wsdl:part name="parameters" element="tns:DoWorkResponse" />
+  </wsdl:message>
+  <wsdl:message name="DoWorkExSoapIn">
+    <wsdl:part name="parameters" element="tns:DoWorkEx" />
+  </wsdl:message>
+  <wsdl:message name="DoWorkExSoapOut">
+    <wsdl:part name="parameters" element="tns:DoWorkExResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ServiceSoap">
+    <wsdl:operation name="GetValue">
+      <wsdl:input message="tns:GetValueSoapIn" />
+      <wsdl:output message="tns:GetValueSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetValueEx">
+      <wsdl:input message="tns:GetValueExSoapIn" />
+      <wsdl:output message="tns:GetValueExSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBytes">
+      <wsdl:input message="tns:GetBytesSoapIn" />
+      <wsdl:output message="tns:GetBytesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTables">
+      <wsdl:input message="tns:GetTablesSoapIn" />
+      <wsdl:output message="tns:GetTablesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTablesEx">
+      <wsdl:input message="tns:GetTablesExSoapIn" />
+      <wsdl:output message="tns:GetTablesExSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDXF">
+      <wsdl:input message="tns:UpdateDXFSoapIn" />
+      <wsdl:output message="tns:UpdateDXFSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePDF">
+      <wsdl:input message="tns:UpdatePDFSoapIn" />
+      <wsdl:output message="tns:UpdatePDFSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMap">
+      <wsdl:input message="tns:UpdateMapSoapIn" />
+      <wsdl:output message="tns:UpdateMapSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateLayer">
+      <wsdl:input message="tns:UpdateLayerSoapIn" />
+      <wsdl:output message="tns:UpdateLayerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateJPG">
+      <wsdl:input message="tns:UpdateJPGSoapIn" />
+      <wsdl:output message="tns:UpdateJPGSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateLogo">
+      <wsdl:input message="tns:UpdateLogoSoapIn" />
+      <wsdl:output message="tns:UpdateLogoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateICO">
+      <wsdl:input message="tns:UpdateICOSoapIn" />
+      <wsdl:output message="tns:UpdateICOSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Identity">
+      <wsdl:input message="tns:IdentitySoapIn" />
+      <wsdl:output message="tns:IdentitySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IdentityEx">
+      <wsdl:input message="tns:IdentityExSoapIn" />
+      <wsdl:output message="tns:IdentityExSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DoWork">
+      <wsdl:input message="tns:DoWorkSoapIn" />
+      <wsdl:output message="tns:DoWorkSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DoWorkEx">
+      <wsdl:input message="tns:DoWorkExSoapIn" />
+      <wsdl:output message="tns:DoWorkExSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ServiceSoap" type="tns:ServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetValue">
+      <soap:operation soapAction="http://planimetron.com/webservices/GetValue" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetValueEx">
+      <soap:operation soapAction="http://planimetron.com/webservices/GetValueEx" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBytes">
+      <soap:operation soapAction="http://planimetron.com/webservices/GetBytes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTables">
+      <soap:operation soapAction="http://planimetron.com/webservices/GetTables" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTablesEx">
+      <soap:operation soapAction="http://planimetron.com/webservices/GetTablesEx" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDXF">
+      <soap:operation soapAction="http://planimetron.com/webservices/UpdateDXF" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePDF">
+      <soap:operation soapAction="http://planimetron.com/webservices/UpdatePDF" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMap">
+      <soap:operation soapAction="http://planimetron.com/webservices/UpdateMap" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateLayer">
+      <soap:operation soapAction="http://planimetron.com/webservices/UpdateLayer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateJPG">
+      <soap:operation soapAction="http://planimetron.com/webservices/UpdateJPG" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateLogo">
+      <soap:operation soapAction="http://planimetron.com/webservices/UpdateLogo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateICO">
+      <soap:operation soapAction="http://planimetron.com/webservices/UpdateICO" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Identity">
+      <soap:operation soapAction="http://planimetron.com/webservices/Identity" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IdentityEx">
+      <soap:operation soapAction="http://planimetron.com/webservices/IdentityEx" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DoWork">
+      <soap:operation soapAction="http://planimetron.com/webservices/DoWork" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DoWorkEx">
+      <soap:operation soapAction="http://planimetron.com/webservices/DoWorkEx" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ServiceSoap12" type="tns:ServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetValue">
+      <soap12:operation soapAction="http://planimetron.com/webservices/GetValue" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetValueEx">
+      <soap12:operation soapAction="http://planimetron.com/webservices/GetValueEx" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBytes">
+      <soap12:operation soapAction="http://planimetron.com/webservices/GetBytes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTables">
+      <soap12:operation soapAction="http://planimetron.com/webservices/GetTables" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTablesEx">
+      <soap12:operation soapAction="http://planimetron.com/webservices/GetTablesEx" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDXF">
+      <soap12:operation soapAction="http://planimetron.com/webservices/UpdateDXF" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePDF">
+      <soap12:operation soapAction="http://planimetron.com/webservices/UpdatePDF" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMap">
+      <soap12:operation soapAction="http://planimetron.com/webservices/UpdateMap" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateLayer">
+      <soap12:operation soapAction="http://planimetron.com/webservices/UpdateLayer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateJPG">
+      <soap12:operation soapAction="http://planimetron.com/webservices/UpdateJPG" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateLogo">
+      <soap12:operation soapAction="http://planimetron.com/webservices/UpdateLogo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateICO">
+      <soap12:operation soapAction="http://planimetron.com/webservices/UpdateICO" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Identity">
+      <soap12:operation soapAction="http://planimetron.com/webservices/Identity" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IdentityEx">
+      <soap12:operation soapAction="http://planimetron.com/webservices/IdentityEx" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DoWork">
+      <soap12:operation soapAction="http://planimetron.com/webservices/DoWork" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DoWorkEx">
+      <soap12:operation soapAction="http://planimetron.com/webservices/DoWorkEx" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service">
+    <wsdl:port name="ServiceSoap" binding="tns:ServiceSoap">
+      <soap:address location="http://sqlx/webdata/service.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ServiceSoap12" binding="tns:ServiceSoap12">
+      <soap12:address location="http://sqlx/webdata/service.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
