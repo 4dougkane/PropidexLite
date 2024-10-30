@@ -3,19 +3,19 @@
   <Profiles />
   <Settings>
     <Setting Name="DatabasePWD" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">2222</Value>
+      <Value Profile="(Default)"></Value>
     </Setting>
     <Setting Name="Server" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">localhost\SQLEXPRESS</Value>
+      <Value Profile="(Default)"></Value>
     </Setting>
     <Setting Name="DatabaseUID" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">parfet</Value>
+      <Value Profile="(Default)"></Value>
     </Setting>
     <Setting Name="DatabaseName" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">cfmlt</Value>
+      <Value Profile="(Default)"></Value>
     </Setting>
     <Setting Name="WebData" Type="(Web Service URL)" Scope="Application">
-      <Value Profile="(Default)">http://sqlx/webdata/service.asmx</Value>
+      <Value Profile="(Default)"></Value>
     </Setting>
   </Settings>
 </SettingsFile>
